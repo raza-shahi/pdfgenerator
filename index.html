@@ -1,86 +1,224 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>pdf generator</title>
-	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+	<title>Academic Report & PDF Generator</title>
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+	<!-- html2pdf.js library -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+		integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 <body>
-	<div class="main-container" id="mca" >
-		<div class="heading-container">
-			<h1>Mca marks summary sheet</h1>
-			<h2>session: july 2022</h2>
-		</div>
-		<div class="table-container">
-			<table>
-				<th>S.No.</th>
-				<th>Roll no.</th>
-				<th>Student Name</th>
-				<th>Maximum marks</th>
-				<th>Marks scored</th>
-				<tr>
-					<td>1</td>
-					<td>21/FCA/MCA/008</td>
-					<td>Aniket</td>
-					<td>100</td>
-					<td>50</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>21/FCA/MCA/060</td>
-					<td>baba</td>
-					<td>100</td>
-					<td>40</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>21/FCA/MCA/061</td>
-					<td>yogesh</td>
-					<td>100</td>
-					<td>30</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>21/FCA/MCA/021</td>
-					<td>harshit</td>
-					<td>100</td>
-					<td>20</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>21/FCA/MCA/024</td>
-					<td>kamal</td>
-					<td>100</td>
-					<td>10</td>
-				</tr>
 
-			</table>
-			
-		</div>	
+	<!-- SIDEBAR / CONTROLS PANEL -->
+	<div class="sidebar-controls">
+		<div class="brand">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A5.99 5.99 0 0 1 12 3.48a5.99 5.99 0 0 1 7.282 5.855 50.58 50.58 0 0 0-2.658.813m-11.114 0A48.667 48.667 0 0 0 12 11.75c3.064 0 5.866-.8 8.232-2.187m-15.482 0C4.158 10.96 4 11.979 4 13.06c0 1.258.12 2.488.35 3.682m15.482-3.682c0-1.08-.158-2.1-.418-3.082m.418 3.082c.233 1.194.35 2.424.35 3.682a47.92 47.92 0 0 1-3.29 12.166m-1.885-3.328a3.401 3.401 0 0 0-3.41 3.41c0 .085.003.17.01.254m0 0a13.917 13.917 0 0 0 2.217-.083m-2.208-.172a3.393 3.393 0 0 1-3.128-3.09" />
+			</svg>
+			<h1>Report Builder Pro</h1>
+		</div>
+
+		<!-- Sheet Metadata Card -->
+		<div class="control-card">
+			<h3>
+				<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+					<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+				</svg>
+				Document Details
+			</h3>
+			<div class="form-group">
+				<label for="input-institution">Institution / Department</label>
+				<input type="text" id="input-institution" value="FCA Dept, MCA Course" placeholder="e.g. FCA Dept, MCA Course">
+			</div>
+			<div class="form-group">
+				<label for="input-title">Report Title</label>
+				<input type="text" id="input-title" value="Mca marks summary sheet" placeholder="e.g. Marks Summary Sheet">
+			</div>
+			<div class="form-group">
+				<label for="input-session">Session / Period</label>
+				<input type="text" id="input-session" value="session: july 2022" placeholder="e.g. session: july 2022">
+			</div>
+		</div>
+
+		<!-- Theme Picker Card -->
+		<div class="control-card">
+			<h3>
+				<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+				</svg>
+				Document Theme Accent
+			</h3>
+			<div class="themes-grid">
+				<button class="theme-btn active" style="background-color: #059669;" onclick="setTheme('theme-emerald')" title="Emerald Green"></button>
+				<button class="theme-btn" style="background-color: #1d4ed8;" onclick="setTheme('theme-navy')" title="Navy Blue"></button>
+				<button class="theme-btn" style="background-color: #334155;" onclick="setTheme('theme-charcoal')" title="Charcoal Dark"></button>
+				<button class="theme-btn" style="background-color: #4f46e5;" onclick="setTheme('theme-indigo')" title="Royal Indigo"></button>
+				<button class="theme-btn" style="background-color: #b91c1c;" onclick="setTheme('theme-crimson')" title="Crimson Maroon"></button>
+			</div>
+		</div>
+
+		<!-- Add Student Card -->
+		<div class="control-card">
+			<h3>
+				<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+				</svg>
+				Add Student Record
+			</h3>
+			<div class="form-group">
+				<label for="add-name">Student Name</label>
+				<input type="text" id="add-name" placeholder="Aniket">
+			</div>
+			<div class="form-group">
+				<label for="add-roll">Roll Number</label>
+				<input type="text" id="add-roll" placeholder="21/FCA/MCA/008">
+			</div>
+			<div class="form-row">
+				<div class="form-group">
+					<label for="add-max">Max Marks</label>
+					<input type="number" id="add-max" value="100" min="1">
+				</div>
+				<div class="form-group">
+					<label for="add-scored">Marks Scored</label>
+					<input type="number" id="add-scored" value="50" min="0">
+				</div>
+			</div>
+			<button class="btn-primary" onclick="addStudent()">
+				<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+				</svg>
+				Add Record
+			</button>
+		</div>
+
+		<!-- Records Editor Card -->
+		<div class="control-card">
+			<h3>
+				<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+				</svg>
+				Manage Records
+			</h3>
+			<div class="editor-table-container">
+				<table class="editor-table">
+					<thead>
+						<tr>
+							<th>Student Name</th>
+							<th>Roll No.</th>
+							<th style="width: 70px;">Marks</th>
+							<th style="width: 40px;"></th>
+						</tr>
+					</thead>
+					<tbody id="editor-students-body">
+						<!-- Injected dynamically via JavaScript -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- Panel Actions -->
+		<div class="actions-container">
+			<button class="btn-primary" onclick="generatepdf()">
+				<svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+				</svg>
+				Download PDF Report
+			</button>
+			<button class="btn-secondary" onclick="resetToDefaults()">
+				<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M9 11l3-3 3 3" />
+				</svg>
+				Reset Default Data
+			</button>
+		</div>
 	</div>
-	<div class="button-container">
-			<button onclick="generatepdf()">download as pdf</button>
+
+	<!-- PREVIEW PANEL -->
+	<div class="preview-panel">
+		<!-- The exportable PDF page container -->
+		<div class="main-container theme-emerald" id="mca">
+			
+			<!-- Header Block -->
+			<div class="document-header-box">
+				<div class="institution-logo">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+					</svg>
+				</div>
+				<div class="inst-name" id="preview-institution">FCA Dept, MCA Course</div>
+				<h1 id="preview-title">MCA Marks Summary Sheet</h1>
+				<h2 id="preview-session">Session: July 2022</h2>
+			</div>
+
+			<!-- PDF Stats Row -->
+			<div class="pdf-stats-row">
+				<div class="pdf-stat-card">
+					<div class="stat-label">Students</div>
+					<div class="stat-val" id="stat-total-students">0</div>
+				</div>
+				<div class="pdf-stat-card">
+					<div class="stat-label">Class Average</div>
+					<div class="stat-val" id="stat-class-average">0%</div>
+				</div>
+				<div class="pdf-stat-card">
+					<div class="stat-label">Highest Score</div>
+					<div class="stat-val" id="stat-highest-score">0</div>
+				</div>
+				<div class="pdf-stat-card">
+					<div class="stat-label">Pass Rate</div>
+					<div class="stat-val" id="stat-pass-rate">0%</div>
+				</div>
+			</div>
+
+			<!-- Printable PDF Table -->
+			<div class="table-container">
+				<table class="pdf-table">
+					<thead>
+						<tr>
+							<th style="width: 60px; text-align: center;">S.No.</th>
+							<th>Roll No.</th>
+							<th>Student Name</th>
+							<th style="text-align: right; width: 110px;">Max Marks</th>
+							<th style="text-align: right; width: 120px;">Marks Scored</th>
+							<th style="text-align: right; width: 100px;">Percentage</th>
+							<th style="text-align: center; width: 90px;">Status</th>
+						</tr>
+					</thead>
+					<tbody id="preview-table-body">
+						<!-- Loaded dynamically -->
+					</tbody>
+				</table>
+			</div>
+
+			<!-- PDF Footer -->
+			<div class="pdf-footer">
+				<div class="pdf-generation-timestamp" id="generation-timestamp">
+					Generated on: Jun 17, 2026 16:53
+				</div>
+				<div style="display: flex; gap: 40px;">
+					<div class="signature-block">
+						<div class="signature-line"></div>
+						<div class="signature-title">Class Coordinator</div>
+					</div>
+					<div class="signature-block">
+						<div class="signature-line"></div>
+						<div class="signature-title">Head of Department</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
-		<script type="text/javascript">
-			function generatepdf(){
-				var element = document.getElementById('mca');
-var opt = {
-  margin:       1,
-  filename:     'myfile.pdf',
-  image:        { type: 'jpeg', quality: 0.98 },
-  html2canvas:  { scale: 2 },
-  jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-};
+	</div>
 
-html2pdf().set(opt).from(element).save();
-
-html2pdf(element, opt);
-			}
-		</script>
-
+	<!-- JS Reactivity Logic -->
+	
+	<script src="./myScript.js"></script>
 </body>
+
 </html>
